@@ -31,6 +31,8 @@ fi
 ## Determine the maximum number of processes that Make can work with.
 PROC_NR=$(getconf _NPROCESSORS_ONLN)
 
+grep -rl Wtraditional . | xargs sed -i 's/-Wtraditional//g'
+
 ## Create and enter the toolchain/build directory
 rm -rf build-$TARGET && mkdir build-$TARGET && cd build-$TARGET || { exit 1; }
 
